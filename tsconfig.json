@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "commonjs",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "allowUnreachableCode": false,
+    "resolveJsonModule": true,
+    //"moduleResolution": "node",
+    //"useUnknownInCatchVariables": true,
+    //"importHelpers": true,
+    //"typeRoots": ["node_modules/@types"],
+    //"types": ["node"],
+    //"strictPropertyInitialization": false
+  },
+  "include": ["src/**/*"]
+}
