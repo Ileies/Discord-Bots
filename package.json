@@ -1,15 +1,14 @@
 {
   "name": "discord-bots",
+  "module": "true",
   "scripts": {
-    "start": "bun run dist/index.js",
-    "build": "bunx tsc"
-  },
-  "dependencies": {
-    "axios": "^1.6.8",
-    "discord.js": "^14.15.2"
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --outdir build --target bun --minify"
   },
   "devDependencies": {
-    "typescript": "^5.4.5",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "axios": "^1.10.0",
+    "discord.js": "^14.21.0",
+    "typescript": "^5.8.3"
   }
 }
