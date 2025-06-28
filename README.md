@@ -35,7 +35,7 @@ The repository includes several bots that demonstrate the framework's capabiliti
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/Discord-Bots.git
+   git clone https://github.com/Ileies/Discord-Bots.git
    cd Discord-Bots
    ```
 
