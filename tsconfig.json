@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2022",
-    "module": "commonjs",
-    "outDir": "dist",
+    "target": "esnext",
+    "module": "esnext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -10,12 +9,7 @@
     "skipLibCheck": true,
     "allowUnreachableCode": false,
     "resolveJsonModule": true,
-    //"moduleResolution": "node",
-    //"useUnknownInCatchVariables": true,
-    //"importHelpers": true,
-    //"typeRoots": ["node_modules/@types"],
-    //"types": ["node"],
-    //"strictPropertyInitialization": false
+    "moduleResolution": "bundler",
   },
   "include": ["src/**/*"]
 }

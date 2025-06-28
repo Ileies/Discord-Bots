@@ -10,8 +10,6 @@ import texts from './texts.json';
 import servers from './servers.json';
 import axios, {AxiosResponse} from 'axios';
 import {Bot as BotType, Command, ServerConfig} from './types';
-import {join} from "path";
-import {existsSync} from "fs";
 
 export class Bot implements BotType {
 	storage: Map<string, any> = new Map();

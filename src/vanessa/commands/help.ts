@@ -1,9 +1,4 @@
-import {
-	ChatInputApplicationCommandData,
-	ChatInputCommandInteraction,
-	Interaction,
-	SlashCommandBuilder
-} from "discord.js";
+import {SlashCommandBuilder} from "discord.js";
 import {embed, reply} from "../../library";
 import {Command} from "../../types";
 

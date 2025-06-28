@@ -1,0 +1,6 @@
+{
+  "apiUrl": "https://api.rizinos.com/",
+  "error": "This didn't work. Try again later.",
+  "needsAdmin": "You need admin permission for this command.",
+  "domain": "rizinos.com"
+}

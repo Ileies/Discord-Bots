@@ -1,5 +1,5 @@
-import {ChatInputCommandInteraction, Client, GatewayIntentBits} from "discord.js";
-import {api, err} from "../library";
+import {GatewayIntentBits} from "discord.js";
+import {api} from "../library";
 import {Bot} from "../types";
 
 let channels: string[] = [];
@@ -12,11 +12,11 @@ export default {
         GatewayIntentBits.MessageContent
     ],
     init: async (client) => {
-        await api("minechat.php?b&action=list", data => channels = data.data);
+        await api("minechat?b&action=list", data => channels = data.data);
         client.on("messageCreate", async message => {
             if (message.author.bot || !channels.includes(message.channel.id)) return;
             await message.delete();
-            await api("minechat.php?b&action=msg&msg=" + encodeURIComponent(message.content) + "&channel=" + message.channel.id + "&user=" + message.author.id, data => {
+            await api("minechat?b&action=msg&msg=" + encodeURIComponent(message.content) + "&channel=" + message.channel.id + "&user=" + message.author.id, data => {
                 switch (data.data) {
                     case 0:
                         break;

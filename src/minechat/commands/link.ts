@@ -1,4 +1,4 @@
-import {BaseGuildTextChannel, ChatInputCommandInteraction, Interaction, SlashCommandBuilder} from "discord.js";
+import {BaseGuildTextChannel, SlashCommandBuilder} from "discord.js";
 import {admin, api, err, reply} from "../../library";
 import {Command} from "../../types";
 
