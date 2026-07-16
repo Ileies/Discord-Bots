@@ -1,5 +1,5 @@
-import {Client, GatewayIntentBits} from 'discord.js';
-import type {Bot} from "../types";
+import {GatewayIntentBits} from 'discord.js';
+import {Bot} from "../types";
 
 export default {
 	intents: [

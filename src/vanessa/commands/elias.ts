@@ -1,6 +1,6 @@
 import {SlashCommandBuilder} from "discord.js";
 import {embed, reply} from "../../library";
-import type {Command} from "../../types";
+import {Command} from "../../types";
 
 export default {
 	data: new SlashCommandBuilder().setName('elias').setDescription('sagt, dass Elias süss ist'),

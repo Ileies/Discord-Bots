@@ -1,6 +1,6 @@
-import {ChatInputCommandInteraction, SlashCommandBuilder} from "discord.js";
+import {SlashCommandBuilder} from "discord.js";
 import {admin, api, err, reply} from "../../library";
-import type {Command} from "../../types";
+import {Command} from "../../types";
 
 export default {
 	data: new SlashCommandBuilder()
@@ -9,7 +9,7 @@ export default {
 	async execute(interaction) {
 		if(!await admin(interaction)) return;
 		// Beendet die Verknüpfung zu einem Minecraft-Server durch eine Anfrage an meine Website und entfernt den zuvor erstellten Webhook.
-		await api("minechat.php?b&action=quit&channel="+interaction.channel?.id, data=> {
+		await api("minechat?b&action=quit&channel="+interaction.channel?.id, data=> {
 			if(data) interaction.client.fetchWebhook(data.data.id, data.data.token).then(async webhook => {
 				await webhook.delete();
 				await reply(interaction, "This channel is no longer linked to a server.");

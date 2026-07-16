@@ -1,6 +1,6 @@
-import {SlashCommandBuilder, type ColorResolvable} from "discord.js";
+import {SlashCommandBuilder, ColorResolvable} from "discord.js";
 import {admin, embed, reply} from "../../library";
-import type {Command} from "../../types";
+import {Command} from "../../types";
 
 export default {
     data: new SlashCommandBuilder()

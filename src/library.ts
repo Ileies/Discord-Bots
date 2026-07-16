@@ -1,15 +1,15 @@
 import {
 	ChatInputCommandInteraction,
 	Client,
-	type ColorResolvable,
+	ColorResolvable,
 	EmbedBuilder,
-	type Interaction,
+	Interaction,
 	PermissionsBitField
 } from 'discord.js';
 import texts from './texts.json';
 import servers from './servers.json';
-import axios, {type AxiosResponse} from 'axios';
-import type {Bot as BotType, Command, ServerConfig} from './types';
+import axios, {AxiosResponse} from 'axios';
+import {Bot as BotType, Command, ServerConfig} from './types';
 
 export class Bot implements BotType {
 	storage: Map<string, any> = new Map();

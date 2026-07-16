@@ -1,6 +1,6 @@
 import {SlashCommandBuilder} from "discord.js";
 import {admin, api, err, reply} from "../../library";
-import type {Command} from "../../types";
+import {Command} from "../../types";
 
 export default {
 	data: new SlashCommandBuilder()
@@ -14,7 +14,7 @@ export default {
 	async execute(interaction, storage) {
 		if(!await admin(interaction)) return;
 		// Sendet ein neues Prefix an meinen Server, dass dann im Minecraft-Server verwendet wird.
-		await api("minechat.php?b&action=prefix&prefix=" + encodeURIComponent(interaction.options.getString('prefix') ?? "") + "&channel=" + interaction.channel?.id, data => {
+		await api("minechat?b&action=prefix&prefix=" + encodeURIComponent(interaction.options.getString('prefix') ?? "") + "&channel=" + interaction.channel?.id, data => {
 			if (data.data === 0) reply(interaction, "New prefix was set.");
 			else reply(interaction, "Couldn't set new prefix.");
 		}, e => err(e, interaction));

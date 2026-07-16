@@ -1,6 +1,6 @@
-import {BaseGuildTextChannel, ChatInputCommandInteraction, type Interaction, SlashCommandBuilder} from "discord.js";
+import {BaseGuildTextChannel, SlashCommandBuilder} from "discord.js";
 import {admin, api, err, reply} from "../../library";
-import type {Command} from "../../types";
+import {Command} from "../../types";
 
 export default {
 	data: new SlashCommandBuilder()

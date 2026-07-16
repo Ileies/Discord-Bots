@@ -1,10 +1,10 @@
 import {readdirSync, existsSync} from 'fs';
 import {join} from 'path';
-import {REST, Routes, Client, type Interaction, type Snowflake} from 'discord.js';
+import {REST, Routes, Client, Interaction, Snowflake} from 'discord.js';
 import defaultTexts from './texts.json';
 import servers from './servers.json';
 import {Bot, err} from './library';
-import type {ServerConfig, BotConfig, Bot as BotType, Nested} from './types';
+import {ServerConfig, BotConfig, Bot as BotType, Nested} from './types';
 
 process.on('uncaughtException', (err) => {
     console.error('Uncaught Exception:', err);
