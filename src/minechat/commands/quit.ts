@@ -1,6 +1,6 @@
 import {ChatInputCommandInteraction, SlashCommandBuilder} from "discord.js";
 import {admin, api, err, reply} from "../../library";
-import {Command} from "../../types";
+import type {Command} from "../../types";
 
 export default {
 	data: new SlashCommandBuilder()

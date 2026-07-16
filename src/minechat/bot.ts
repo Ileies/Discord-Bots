@@ -1,6 +1,6 @@
 import {ChatInputCommandInteraction, Client, GatewayIntentBits} from "discord.js";
 import {api, err} from "../library";
-import {Bot} from "../types";
+import type {Bot} from "../types";
 
 let channels: string[] = [];
 

@@ -1,21 +1,29 @@
 {
   "compilerOptions": {
-    "target": "es2022",
-    "module": "commonjs",
-    "outDir": "dist",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    // Enable latest features
+    "lib": ["ESNext", "DOM"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "allowJs": true,
+
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+    // Best practices
     "strict": true,
-    "sourceMap": true,
     "skipLibCheck": true,
-    "allowUnreachableCode": false,
-    "resolveJsonModule": true,
-    //"moduleResolution": "node",
-    //"useUnknownInCatchVariables": true,
-    //"importHelpers": true,
-    //"typeRoots": ["node_modules/@types"],
-    //"types": ["node"],
-    //"strictPropertyInitialization": false
-  },
-  "include": ["src/**/*"]
+    "noFallthroughCasesInSwitch": true,
+
+    // Some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false
+
+    //"resolveJsonModule": true
+  }
 }

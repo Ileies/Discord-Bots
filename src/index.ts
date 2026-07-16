@@ -1,10 +1,10 @@
 import {readdirSync, existsSync} from 'fs';
 import {join} from 'path';
-import {REST, Routes, Client, Interaction, Snowflake} from 'discord.js';
+import {REST, Routes, Client, type Interaction, type Snowflake} from 'discord.js';
 import defaultTexts from './texts.json';
 import servers from './servers.json';
 import {Bot, err} from './library';
-import {ServerConfig, BotConfig, Bot as BotType, Nested} from './types';
+import type {ServerConfig, BotConfig, Bot as BotType, Nested} from './types';
 
 process.on('uncaughtException', (err) => {
     console.error('Uncaught Exception:', err);
@@ -22,13 +22,18 @@ for (const [name, serverConfig] of Object.entries(servers as Record<string, Serv
 
         const log = (data: any) => console.log(`[${name}]: `, data);
 
-        // Check if the bot file exists for the current server
-        if (!existsSync(`${botDir}/bot.js`)) {
-            log("Could not start: bot.js does not exist");
+        if (!serverConfig.token || !serverConfig.id) {
+            log("Token or ID missing");
             return;
         }
 
-        const bot = new Bot((await import(`${botDir}/bot.js`)).default as BotType);
+        // Check if the bot file exists for the current server
+        if (!existsSync(`${botDir}/bot.ts`)) {
+            log("Could not start: bot.ts does not exist");
+            return;
+        }
+
+        const bot = new Bot((await import(`${botDir}/bot.ts`)).default as BotType);
 
         // Check if 'intents' property is defined in the bot file
         if (typeof bot.intents === "undefined") {
@@ -40,7 +45,7 @@ for (const [name, serverConfig] of Object.entries(servers as Record<string, Serv
         const rest = new REST().setToken(serverConfig.token);
         const commandsPath = `${botDir}/commands`;
         if (existsSync(commandsPath)) {
-            const commandsFiles = readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+            const commandsFiles = readdirSync(commandsPath).filter((file: string) => file.endsWith('.ts'));
             for (const file of commandsFiles) {
                 const command = (await import(`${commandsPath}/${file}`)).default;
                 bot.commands.set(command.data.name, command);
@@ -109,15 +114,10 @@ for (const [name, serverConfig] of Object.entries(servers as Record<string, Serv
         });
 
         // Log in to Discord
-        await client.login(serverConfig.token);
+        try {
+            await client.login(serverConfig.token);
+        } catch (error) {
+            console.log(`[${name}]: `, error);
+        }
     })();
 }
-
-/* Maybe catch all:
-
-catch (error) {
-    console.error(`[${name}]: `, error);
-    if (client) client.destroy();
-}
-
- */

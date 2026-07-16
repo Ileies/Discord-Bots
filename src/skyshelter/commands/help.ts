@@ -1,6 +1,6 @@
-import {ChatInputCommandInteraction, Interaction, SlashCommandBuilder} from "discord.js";
+import {ChatInputCommandInteraction, type Interaction, SlashCommandBuilder} from "discord.js";
 import {embed, reply} from "../../library.js";
-import {Command} from "../../types";
+import type {Command} from "../../types";
 
 export default {
 	data: new SlashCommandBuilder().setName('help').setDescription('Shows help info and commands.'),
